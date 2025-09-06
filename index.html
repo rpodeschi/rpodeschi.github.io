@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RJ Podeschi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.1) 0%, rgba(42, 82, 152, 0.1) 100%);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .location {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(135deg, #1e3c72, #2a5298) 1;
+            padding-bottom: 10px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(30, 60, 114, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid;
+            border-image: linear-gradient(135deg, #1e3c72, #2a5298) 1;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #1e3c72;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .duration {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .education-item {
+            padding: 20px;
+            background: rgba(42, 82, 152, 0.05);
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .school {
+            color: #2a5298;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .year {
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .highlight h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="card animate-fade-in">
+            <div class="hero">
+                <div class="profile-image">RP</div>
+                <h1 class="name">RJ Podeschi</h1>
+                <p class="title">Dean • Associate Professor • Higher Education Leader</p>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/rjpodeschi" class="contact-link">LinkedIn</a>
+                    <a href="https://millikin.edu" class="contact-link">University</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="card animate-fade-in">
+            <div class="section">
+                <h2 class="section-title">About</h2>
+                <div class="highlight">
+                    <h3>Teaching Philosophy</h3>
+                    <p>"I am energized by having the ability to share my real-world experiences with students and tie it into the theoretical material. Through hands-on, practical experience with client projects in the community, I hope that students gain the skills and confidence they need when entering the professional IT market upon graduation."</p>
+                </div>
+                <p class="about-text">
+                    RJ Podeschi serves as Dean of the Tabor School of Business and Associate Professor of Information Systems at Millikin University. 
+                    With over 20 years of combined experience in higher education and IT leadership, RJ brings a unique blend of academic excellence 
+                    and real-world business expertise to his roles.
+                </p>
+                <p class="about-text">
+                    His teaching specialties include database management and analytics, with research interests focused on computing education 
+                    pedagogy and business intelligence. RJ is passionate about bridging the gap between theoretical knowledge and practical 
+                    application, ensuring students are well-prepared for their professional careers.
+                </p>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="card animate-fade-in">
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-title">Dean</div>
+                    <div class="company">Tabor School of Business, Millikin University</div>
+                    <div class="duration">Current Position</div>
+                    <div class="job-description">
+                        • Leading strategic initiatives for the Tabor School of Business<br>
+                        • Overseeing academic programs and faculty development<br>
+                        • Managing school operations and stakeholder relationships<br>
+                        • Driving innovation in business education and curriculum development
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Associate Professor of Information Systems</div>
+                    <div class="company">Millikin University</div>
+                    <div class="duration">2012 - Present</div>
+                    <div class="job-description">
+                        • Teaching courses in database management, cybersecurity, and information systems<br>
+                        • Conducting research in computing education pedagogy and business intelligence<br>
+                        • Serving on editorial review board for Information Systems Education Journal<br>
+                        • Publishing multiple articles on information systems pedagogy<br>
+                        • Founding and overseeing MU Performance Consulting, a student-run IT consulting venture
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">IT Leadership & Development Roles</div>
+                    <div class="company">Millikin University</div>
+                    <div class="duration">2001 - 2012 (11 years)</div>
+                    <div class="job-description">
+                        • Served in various IT developer, administrative, and leadership roles<br>
+                        • Focused on enterprise systems and IT infrastructure development<br>
+                        • Led technology initiatives and system implementations<br>
+                        • Gained extensive real-world experience in IT operations and management
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Founder & Owner</div>
+                    <div class="company">Braden, Killey, and Podeschi, LLC</div>
+                    <div class="duration">Former</div>
+                    <div class="job-description">
+                        • Founded and operated successful IT consulting business<br>
+                        • Provided technology solutions to various clients<br>
+                        • Developed entrepreneurial experience that informed academic teaching<br>
+                        • Experience influenced creation of MU Performance Consulting program
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="card animate-fade-in">
+            <div class="section">
+                <h2 class="section-title">Expertise & Specializations</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Database Management</div>
+                    <div class="skill-item">Cybersecurity</div>
+                    <div class="skill-item">Information Systems</div>
+                    <div class="skill-item">Business Intelligence</div>
+                    <div class="skill-item">Computing Education</div>
+                    <div class="skill-item">IT Infrastructure</div>
+                    <div class="skill-item">Enterprise Systems</div>
+                    <div class="skill-item">Academic Leadership</div>
+                    <div class="skill-item">Curriculum Development</div>
+                    <div class="skill-item">Student Mentoring</div>
+                    <div class="skill-item">IT Consulting</div>
+                    <div class="skill-item">Research & Publications</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="card animate-fade-in">
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="degree">Master of Science in Management Information Systems</div>
+                    <div class="school">University of Illinois - Springfield</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Master of Business Administration (MBA)</div>
+                    <div class="school">Millikin University</div>
+                    <div class="year">Class of 2004</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Bachelor's in Management Information Systems</div>
+                    <div class="school">Millikin University</div>
+                    <div class="year">Class of 2002</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leadership & Service Section -->
+        <div class="card animate-fade-in">
+            <div class="section">
+                <h2 class="section-title">Leadership & Community Service</h2>
+                <div class="experience-item">
+                    <div class="job-title">Director</div>
+                    <div class="company">Staley Credit Union</div>
+                    <div class="duration">15+ Years</div>
+                    <div class="job-description">
+                        • Providing strategic oversight and governance for financial institution<br>
+                        • Contributing to board decisions and policy development
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Finance Committee Chair</div>
+                    <div class="company">Sharon United Methodist Church, Decatur</div>
+                    <div class="duration">Current</div>
+                    <div class="job-description">
+                        • Leading financial planning and oversight for church operations<br>
+                        • Managing budget development and financial strategic planning
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Information Systems and Computing Academic Professionals</div>
+                    <div class="company">Treasurer, Board Member, and Conference Committee</div>
+                    <div class="duration">Current</div>
+                    <div class="job-description">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Interests -->
+        <div class="card animate-fade-in">
+            <div class="section">
+                <h2 class="section-title">Personal Interests</h2>
+                <div class="about-text">
+                    When not immersed in academic and professional pursuits, RJ enjoys an active lifestyle that includes 
+                    tennis, traveling, cooking, and landscaping/gardening. These diverse interests contribute to his 
+                    well-rounded perspective and help maintain work-life balance while inspiring creative approaches to 
+                    teaching and leadership.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animation triggers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Stagger animation delays for cards
+            const cards = document.querySelectorAll('.animate-fade-in');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = (index * 0.2) + 's';
+            });
+
+            // Add hover effects to experience items
+            const experienceItems = document.querySelectorAll('.experience-item');
+            experienceItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
